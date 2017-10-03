@@ -267,7 +267,9 @@ class CFS_Options_Screens {
 				$this->screens[ $screen_key ]['menu_position']  = isset( $screen_meta['menu_position'] ) ? $screen_meta['menu_position'] : 100;
 				$this->screens[ $screen_key ]['field_groups']   = isset( $screen_meta['field_groups'] )  ? $screen_meta['field_groups'] : array();
 
-				$this->screens[ $screen_key ]['capability']     = apply_filters( 'cfs_options_screens_capability', 'manage_options', $screen_meta );
+				// $this->screens[ $screen_key ]['capability']     = apply_filters( 'cfs_options_screens_capability', 'manage_options', $screen_meta );
+				$this->screens[ $screen_key ]['capability']     = isset( $screen_meta['capability'] )    ? $screen_meta['capability'] : 'edit_theme_options';
+				// @ http://wpdocs.osdn.jp/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%81%A8%E6%A8%A9%E9%99%90#.E3.83.A6.E3.83.BC.E3.82.B6.E3.83.BC.E3.83.AC.E3.83.99.E3.83.AB
 
 				// check to see if the post for this screen exists
 				$screen = get_page_by_title( $this->screens[ $screen_key ]['name'], 'OBJECT', $this->post_type );
